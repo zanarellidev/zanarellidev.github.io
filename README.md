@@ -1,5 +1,5 @@
 # Raphael Zanarelli
 
-Online resume of Raphael Zanarelli, a Staff Software Engineer specializing in Cloud, Security and AI.
+Currículo online de Raphael Zanarelli, Staff Software Engineer especializado em Cloud, Segurança e IA.
 
-Available at [zanarellidev.github.io](https://zanarellidev.github.io).
+Disponível em [zanarellidev.github.io](https://zanarellidev.github.io).
