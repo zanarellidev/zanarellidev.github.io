@@ -1,401 +1,133 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Raphael Zanarelli — Staff Software Engineer</title>
-<meta name="description" content="Raphael Zanarelli — Staff Software Engineer specializing in Cloud, Security & AI. 10+ years building and operating mission-critical systems.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg: #0b0e14;
-    --panel: #12161f;
-    --panel-2: #161b26;
-    --border: #232a38;
-    --text: #e8ecf1;
-    --muted: #8993a6;
-    --amber: #f0a868;
-    --cyan: #5ec8d8;
-    --red: #e5484d;
-    --green: #4fae7c;
-    --radius: 3px;
-  }
-  *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth;}
-  body{
-    background:var(--bg);
-    color:var(--text);
-    font-family:'IBM Plex Sans', sans-serif;
-    line-height:1.5;
-    -webkit-font-smoothing:antialiased;
-  }
-  .mono{font-family:'IBM Plex Mono', monospace;}
-  a{color:var(--cyan); text-decoration:none;}
-  a:hover{text-decoration:underline;}
-  :focus-visible{outline:2px solid var(--amber); outline-offset:2px;}
-
-  .wrap{max-width:920px; margin:0 auto; padding:0 24px;}
-
-  /* ---------- Nav ---------- */
-  header.nav{
-    position:sticky; top:0; z-index:10;
-    background:rgba(11,14,20,0.92);
-    backdrop-filter:blur(6px);
-    border-bottom:1px solid var(--border);
-  }
-  .nav-inner{display:flex; align-items:center; justify-content:space-between; padding:14px 24px;}
-  .brand{font-family:'IBM Plex Mono'; font-size:14px; color:var(--text); display:flex; align-items:center; gap:8px;}
-  .dot{width:8px; height:8px; border-radius:50%; background:var(--green); box-shadow:0 0 8px var(--green); display:inline-block; animation:pulse 2.4s ease-in-out infinite;}
-  @keyframes pulse{0%,100%{opacity:1;} 50%{opacity:0.45;}}
-  nav.links{display:flex; gap:22px; font-family:'IBM Plex Mono'; font-size:13px;}
-  nav.links a{color:var(--muted);}
-  nav.links a:hover{color:var(--cyan); text-decoration:none;}
-
-  /* ---------- Hero / status header ---------- */
-  .hero{padding:64px 0 40px;}
-  .eyebrow{font-family:'IBM Plex Mono'; font-size:12px; letter-spacing:0.08em; color:var(--muted); text-transform:uppercase; margin-bottom:14px;}
-  h1{font-size:clamp(32px,5vw,48px); font-weight:700; letter-spacing:-0.02em; margin-bottom:10px;}
-  .role{font-size:18px; color:var(--amber); font-weight:600; margin-bottom:18px;}
-  .summary{color:var(--muted); max-width:640px; font-size:15px; margin-bottom:28px;}
-  .meta-row{display:flex; flex-wrap:wrap; gap:18px; font-family:'IBM Plex Mono'; font-size:13px; color:var(--muted); margin-bottom:8px;}
-  .meta-row span{display:flex; align-items:center; gap:6px;}
-
-  /* ---------- Status panels (signature element) ---------- */
-  .panels{
-    display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:1px; background:var(--border); border:1px solid var(--border); border-radius:var(--radius);
-    overflow:hidden; margin:32px 0 8px;
-  }
-  .panel{background:var(--panel); padding:18px 20px; border-top:2px solid var(--border); position:relative;}
-  .panel.ok{border-top-color:var(--green);}
-  .panel .label{font-family:'IBM Plex Mono'; font-size:11px; letter-spacing:0.05em; text-transform:uppercase; color:var(--muted); margin-bottom:10px;}
-  .panel .value{font-family:'IBM Plex Mono'; font-size:22px; font-weight:500; display:flex; align-items:baseline; gap:8px;}
-  .panel .before{color:var(--red); text-decoration:line-through; font-size:14px; opacity:0.7;}
-  .panel .arrow{color:var(--muted); font-size:14px;}
-  .panel .after{color:var(--green);}
-
-  @media (max-width:560px){
-    .term-row{flex-wrap:wrap;}
-    .term-opt{width:100%;}
-    .term-mode{margin-left:auto;}
-    .meta-row{gap:10px;}
-    nav.links{display:none;}
-  }
-
-  section{padding:48px 0; border-top:1px solid var(--border);}
-  .section-head{display:flex; align-items:baseline; gap:12px; margin-bottom:28px;}
-  .section-head .tag{font-family:'IBM Plex Mono'; font-size:12px; color:var(--amber);}
-  h2{font-size:22px; font-weight:700;}
-
-  /* ---------- Experience ---------- */
-  .job{
-    display:grid; grid-template-columns:150px 1fr; gap:20px;
-    padding:20px 0; border-bottom:1px solid var(--border);
-  }
-  .job:last-child{border-bottom:none;}
-  .job .when{font-family:'IBM Plex Mono'; font-size:12px; color:var(--muted); padding-top:3px;}
-  .job .title{font-weight:600; font-size:16px; margin-bottom:2px;}
-  .job .org{color:var(--cyan); font-size:14px; margin-bottom:6px;}
-  .job .where{font-family:'IBM Plex Mono'; font-size:12px; color:var(--muted);}
-
-  /* ---------- Skills / certs ---------- */
-  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:32px;}
-  @media (max-width:640px){.grid2{grid-template-columns:1fr;} .job{grid-template-columns:1fr;}}
-  .chiplist{display:flex; flex-wrap:wrap; gap:8px;}
-  .chip{
-    font-family:'IBM Plex Mono'; font-size:12px; padding:6px 12px;
-    border:1px solid var(--border); border-radius:20px; color:var(--text); background:var(--panel);
-  }
-  .cert-list{list-style:none;}
-  .cert-list li{
-    font-size:14px; padding:10px 0; border-bottom:1px solid var(--border);
-    display:flex; justify-content:space-between; gap:12px;
-  }
-  .cert-list li:last-child{border-bottom:none;}
-  .cert-code{font-family:'IBM Plex Mono'; font-size:11px; color:var(--muted); white-space:nowrap;}
-
-  /* ---------- Education ---------- */
-  .edu{padding:14px 0; border-bottom:1px solid var(--border);}
-  .edu:last-child{border-bottom:none;}
-  .edu .school{font-weight:600; font-size:15px;}
-  .edu .degree{color:var(--muted); font-size:14px; margin-top:2px;}
-  .edu .when{font-family:'IBM Plex Mono'; font-size:12px; color:var(--amber); margin-top:4px;}
-
-  /* ---------- Contact terminal ---------- */
-  .terminal{
-    background:#0e1119; border:1px solid var(--border); border-radius:var(--radius);
-    overflow:hidden;
-  }
-  .term-bar{
-    display:flex; align-items:center; gap:8px; padding:10px 14px;
-    background:var(--panel-2); border-bottom:1px solid var(--border);
-    font-family:'IBM Plex Mono'; font-size:12px; color:var(--muted);
-  }
-  .term-bar .tf{width:10px; height:10px; border-radius:50%; background:#3a4152;}
-  .term-body{padding:20px 22px; font-family:'IBM Plex Mono'; font-size:14px;}
-  .term-line{color:var(--muted); margin-bottom:16px;}
-  .term-line .prompt{color:var(--green);}
-  .term-options{display:flex; flex-direction:column; gap:2px;}
-  .term-opt{
-    display:flex; align-items:center; gap:12px; padding:11px 12px; border-radius:var(--radius);
-    color:var(--text); background:transparent; border:1px solid transparent; text-decoration:none;
-    transition:background .12s ease, border-color .12s ease;
-  }
-  .term-opt:hover, .term-opt:focus-visible{
-    background:var(--panel); border-color:var(--border); text-decoration:none;
-  }
-  .term-opt .flag{color:var(--cyan); min-width:150px;}
-  .term-opt .desc{color:var(--muted); font-size:13px; flex:1;}
-  .term-opt::before{content:"›"; color:var(--amber); margin-right:2px;}
-  .term-row{display:flex; align-items:center; gap:8px;}
-  .term-mode{
-    font-family:'IBM Plex Mono'; font-size:11px; padding:4px 9px; border-radius:20px;
-    border:1px solid var(--border); color:var(--muted); white-space:nowrap;
-  }
-  .term-mode:hover{color:var(--amber); border-color:var(--amber); text-decoration:none;}
-  .term-legend{font-family:'IBM Plex Mono'; font-size:11px; color:var(--muted); margin:14px 0 4px; padding-left:2px;}
-
-  footer{padding:36px 0 56px; text-align:center; color:var(--muted); font-family:'IBM Plex Mono'; font-size:12px;}
-  footer a{color:var(--muted);}
-
-  @media (prefers-reduced-motion: reduce){
-    html{scroll-behavior:auto;}
-    .dot{animation:none;}
-  }
-</style>
-</head>
-<body>
-
-<header class="nav">
-  <div class="nav-inner">
-    <div class="brand"><span class="dot" aria-hidden="true"></span> zanarelli.service</div>
-    <nav class="links">
-      <a href="#status">status</a>
-      <a href="#experience">experience</a>
-      <a href="#skills">skills</a>
-      <a href="#oss">open source</a>
-      <a href="#contact">contact</a>
-    </nav>
-  </div>
-</header>
-
-<main class="wrap">
-
-  <section class="hero" id="status" style="border-top:none;">
-    <div class="eyebrow">// staff-software-engineer.service — running</div>
-    <h1>Raphael Zanarelli</h1>
-    <div class="role">Staff Software Engineer — Cloud, Security &amp; AI</div>
-    <p class="summary">10+ years designing, building, and operating mission-critical enterprise systems. 5+ years leading large-scale IT projects and high-performing engineering teams — turning fragile systems into ones that stay up, and turning slow release cycles into fast, safe ones.</p>
-    <div class="meta-row">
-      <span>📍 Greater São Paulo Area, Brazil</span>
-      <span>🔗 <a href="https://www.linkedin.com/in/raphaelzanarelli" target="_blank" rel="noopener">linkedin.com/in/raphaelzanarelli</a></span>
-    </div>
-
-    <div class="panels" role="list" aria-label="Career impact metrics">
-      <div class="panel ok" role="listitem">
-        <div class="label">Incident Backlog</div>
-        <div class="value"><span class="before">15</span><span class="arrow">→</span><span class="after">0</span></div>
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Raphael Zanarelli - Staff Software Engineer especializado em Cloud, Segurança e IA.">
+    <title>Raphael Zanarelli | Staff Software Engineer</title>
+    <style>
+      :root { --ink:#16202b; --muted:#62707f; --line:#dfe5eb; --paper:#fff; --ground:#f6f8fa; --accent:#007b75; --navy:#123047; }
+      * { box-sizing:border-box; }
+      html { scroll-behavior:smooth; }
+      body { margin:0; background:var(--ground); color:var(--ink); font:16px/1.65 ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      a { color:var(--accent); text-decoration-thickness:1px; text-underline-offset:3px; }
+      a:hover { color:#005b57; }
+      .wrap { width:min(1080px, calc(100% - 40px)); margin:auto; }
+      header { background:var(--navy); color:#fff; padding:76px 0 64px; }
+      .eyebrow { margin:0 0 12px; color:#86e1d9; font-size:.82rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
+      h1 { margin:0; font-size:clamp(2.4rem, 6vw, 4.8rem); letter-spacing:-.055em; line-height:1; }
+      .role { margin:18px 0 26px; color:#d5e3ed; font-size:clamp(1.1rem, 2.2vw, 1.45rem); }
+      .links { display:flex; flex-wrap:wrap; gap:10px 22px; }
+      .links a { color:#fff; font-weight:650; }
+      main { padding:42px 0 64px; }
+      .intro { display:grid; grid-template-columns:1.3fr .7fr; gap:44px; padding:38px 0 50px; }
+      .lede { margin:0; font-size:1.3rem; line-height:1.6; }
+      .fact { border-left:2px solid #79d4cc; padding-left:18px; margin:0 0 22px; }
+      .fact strong { display:block; color:var(--navy); font-size:1.25rem; }
+      section { padding:44px 0; border-top:1px solid var(--line); }
+      h2 { margin:0 0 22px; color:var(--navy); font-size:1.65rem; letter-spacing:-.025em; }
+      h3 { margin:0 0 4px; font-size:1.08rem; }
+      .grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:18px; }
+      .card { padding:22px; border:1px solid var(--line); border-radius:12px; background:var(--paper); }
+      .card p { margin:6px 0 0; color:var(--muted); }
+      .metrics { display:grid; grid-template-columns:repeat(3, 1fr); gap:14px; }
+      .metric { padding:20px; border-radius:10px; background:#eaf7f5; }
+      .metric strong { display:block; color:var(--accent); font-size:1.8rem; letter-spacing:-.04em; }
+      .metric span { color:#40515d; font-size:.94rem; line-height:1.35; }
+      .timeline { list-style:none; margin:0; padding:0; }
+      .timeline li { display:grid; grid-template-columns:180px 1fr; gap:24px; padding:20px 0; border-bottom:1px solid var(--line); }
+      .timeline li:last-child { border:0; }
+      .date, .meta { color:var(--muted); font-size:.93rem; }
+      .timeline p { margin:6px 0 0; }
+      .contributions { display:grid; grid-template-columns:repeat(2, 1fr); gap:12px; }
+      .contribution { display:block; padding:18px 20px; border:1px solid var(--line); border-radius:10px; background:var(--paper); color:var(--ink); text-decoration:none; }
+      .contribution:hover { border-color:#75c9c2; box-shadow:0 5px 18px #11364c12; color:var(--ink); }
+      .contribution strong { display:block; color:var(--navy); }
+      .contribution small { color:var(--muted); }
+      .skills { display:flex; flex-wrap:wrap; gap:9px; }
+      .skills span { padding:6px 11px; border-radius:999px; background:#e9eef2; color:#344554; font-size:.91rem; }
+      footer { padding:28px 0 46px; border-top:1px solid var(--line); color:var(--muted); font-size:.92rem; }
+      @media (max-width:720px) { header { padding:55px 0 48px; } .intro, .grid { grid-template-columns:1fr; gap:26px; } .metrics, .contributions { grid-template-columns:1fr; } .timeline li { grid-template-columns:1fr; gap:3px; } }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="wrap">
+        <p class="eyebrow">Currículo</p>
+        <h1>Raphael Zanarelli</h1>
+        <p class="role">Staff Software Engineer · Cloud, Segurança &amp; IA</p>
+        <nav class="links" aria-label="Links de contato">
+          <a href="https://github.com/zanarellidev">GitHub</a>
+          <a href="https://www.linkedin.com/in/raphaelzanarelli/" lang="en">LinkedIn (English version)</a>
+        </nav>
       </div>
-      <div class="panel ok" role="listitem">
-        <div class="label">MTTR</div>
-        <div class="value"><span class="before">~2h</span><span class="arrow">→</span><span class="after">~5min</span></div>
-      </div>
-      <div class="panel ok" role="listitem">
-        <div class="label">Time-to-Market</div>
-        <div class="value"><span class="before">~2h</span><span class="arrow">→</span><span class="after">~20min</span></div>
-      </div>
-      <div class="panel ok" role="listitem">
-        <div class="label">Availability</div>
-        <div class="value"><span class="after">99.9%</span></div>
-      </div>
-      <div class="panel ok" role="listitem">
-        <div class="label">Success Rate</div>
-        <div class="value"><span class="before">85%</span><span class="arrow">→</span><span class="after">99%</span></div>
-      </div>
-      <div class="panel ok" role="listitem">
-        <div class="label">Response Time</div>
-        <div class="value"><span class="before">&gt;1min</span><span class="arrow">→</span><span class="after">&lt;2s</span></div>
-      </div>
-    </div>
-  </section>
+    </header>
 
-  <section id="experience">
-    <div class="section-head"><span class="tag">02</span><h2>Experience</h2></div>
-
-    <div class="job">
-      <div class="when">May 2026 — Present</div>
-      <div>
-        <div class="title">Software Development Senior Specialist</div>
-        <div class="org">Engineering Brasil</div>
-        <div class="where">Greater São Paulo Area</div>
-      </div>
-    </div>
-
-    <div class="job">
-      <div class="when">Mar 2026 — May 2026</div>
-      <div>
-        <div class="title">Tech Lead</div>
-        <div class="org">Porto</div>
-        <div class="where">São Paulo, Brazil</div>
-      </div>
-    </div>
-
-    <div class="job">
-      <div class="when">Nov 2022 — Mar 2026</div>
-      <div>
-        <div class="title">Tech Lead</div>
-        <div class="org">Claro Brasil</div>
-        <div class="where">São Paulo, Brazil · 3 yrs 5 mos</div>
-      </div>
-    </div>
-
-    <div class="job">
-      <div class="when">Sep 2022 — Mar 2026</div>
-      <div>
-        <div class="title">Tech Lead</div>
-        <div class="org">Spread Tecnologia</div>
-        <div class="where">São Paulo, Brazil · 3 yrs 7 mos</div>
-      </div>
-    </div>
-
-    <div class="job">
-      <div class="when">Jul 2018 — Sep 2022</div>
-      <div>
-        <div class="title">Software Engineer</div>
-        <div class="org">DXC Technology</div>
-        <div class="where">Greater São Paulo Area · 4 yrs 3 mos</div>
-      </div>
-    </div>
-
-    <div class="job">
-      <div class="when">Apr 2018 — Jul 2018</div>
-      <div>
-        <div class="title">Software Engineer</div>
-        <div class="org">Invillia</div>
-        <div class="where">4 mos</div>
-      </div>
-    </div>
-  </section>
-
-  <section id="skills">
-    <div class="section-head"><span class="tag">03</span><h2>Skills &amp; Certifications</h2></div>
-    <div class="grid2">
-      <div>
-        <div class="label mono" style="font-family:'IBM Plex Mono'; font-size:11px; color:var(--muted); text-transform:uppercase; margin-bottom:12px;">Core competencies</div>
-        <div class="chiplist">
-          <span class="chip">Software Architecture</span>
-          <span class="chip">Software Development Life Cycle</span>
-          <span class="chip">Information Security</span>
-          <span class="chip">Cloud-Native Systems</span>
-          <span class="chip">Microservices</span>
-          <span class="chip">Observability</span>
-          <span class="chip">CI/CD</span>
-          <span class="chip">Kubernetes / EKS</span>
-          <span class="chip">Team Leadership</span>
-          <span class="chip">English (Professional Working)</span>
+    <main class="wrap">
+      <div class="intro">
+        <p class="lede">Engenheiro de software com mais de 10 anos criando e operando aplicações empresariais críticas. Combino arquitetura cloud-native, segurança, observabilidade e liderança técnica para transformar problemas complexos em produtos confiáveis.</p>
+        <div>
+          <p class="fact"><strong>10+ anos</strong> em engenharia de software e sistemas críticos</p>
+          <p class="fact"><strong>5+ anos</strong> liderando projetos e operações de TI em escala</p>
+          <p class="fact"><strong>São Paulo, Brasil</strong> Português e inglês profissional</p>
         </div>
       </div>
-      <div>
-        <div class="label mono" style="font-family:'IBM Plex Mono'; font-size:11px; color:var(--muted); text-transform:uppercase; margin-bottom:12px;">Certifications</div>
-        <ul class="cert-list">
-          <li><span>Oracle Data Platform</span><span class="cert-code">1Z0-1195-25</span></li>
-          <li><span>Oracle Cloud Infrastructure</span><span class="cert-code">1Z0-1085-25</span></li>
-          <li><span>AWS Well-Architected</span><span class="cert-code">AWS</span></li>
-          <li><span>Microsoft Azure Fundamentals</span><span class="cert-code">AZ-900</span></li>
-          <li><span>Amazon EKS</span><span class="cert-code">AWS</span></li>
-        </ul>
-      </div>
-    </div>
-  </section>
 
-  <section id="oss">
-    <div class="section-head"><span class="tag">04</span><h2>Open source activity</h2></div>
-    <p class="summary" style="margin-bottom:20px;">Recent pull requests to infrastructure and distributed-systems projects. Status shown as-is — these are open, not yet merged.</p>
-    <div class="job">
-      <div class="when" style="color:var(--amber);">Open</div>
-      <div><div class="title">Guarantee single-invocation for the <code>OnFinish</code> callback</div><div class="org"><a href="https://github.com/grpc/grpc-go/pull/9275" target="_blank" rel="noopener">grpc/grpc-go #9275</a></div></div>
-    </div>
-    <div class="job">
-      <div class="when" style="color:var(--amber);">Open</div>
-      <div><div class="title">Fix nil-pointer in identity validation</div><div class="org"><a href="https://github.com/cert-manager/cert-manager/pull/9081" target="_blank" rel="noopener">cert-manager/cert-manager #9081</a></div></div>
-    </div>
-    <div class="job">
-      <div class="when" style="color:var(--amber);">Open</div>
-      <div><div class="title">Fix wipe of encrypted devices</div><div class="org"><a href="https://github.com/rook/rook/pull/18066" target="_blank" rel="noopener">rook/rook #18066</a></div></div>
-    </div>
-    <div class="job">
-      <div class="when" style="color:var(--amber);">Open</div>
-      <div><div class="title">Validate IDs in feature gates</div><div class="org"><a href="https://github.com/open-telemetry/opentelemetry-collector/pull/15679" target="_blank" rel="noopener">open-telemetry/opentelemetry-collector #15679</a></div></div>
-    </div>
-    <div class="job">
-      <div class="when" style="color:var(--amber);">Open</div>
-      <div><div class="title">Preserve leader state on transaction failure</div><div class="org"><a href="https://github.com/etcd-io/etcd/pull/22211" target="_blank" rel="noopener">etcd-io/etcd #22211</a></div></div>
-    </div>
-    <div class="job">
-      <div class="when" style="color:var(--amber);">Open</div>
-      <div><div class="title">Cancel in-flight exec probe when its worker stops</div><div class="org"><a href="https://github.com/kubernetes/kubernetes/pull/140991" target="_blank" rel="noopener">kubernetes/kubernetes #140991</a></div></div>
-    </div>
-    <div class="job">
-      <div class="when" style="color:var(--amber);">Open</div>
-      <div><div class="title">Release orphaned node ID after partial remapping</div><div class="org"><a href="https://github.com/cilium/cilium/pull/47568" target="_blank" rel="noopener">cilium/cilium #47568</a></div></div>
-    </div>
-    <div class="job">
-      <div class="when" style="color:var(--amber);">Open</div>
-      <div><div class="title">Persist iptables backend in the CNI</div><div class="org"><a href="https://github.com/istio/istio/pull/61024" target="_blank" rel="noopener">istio/istio #61024</a></div></div>
-    </div>
-  </section>
-
-  <section id="education">
-    <div class="section-head"><span class="tag">05</span><h2>Education</h2></div>
-    <div class="edu">
-      <div class="school">Faculdade de Tecnologia de São Paulo — FATEC-SP</div>
-      <div class="degree">B.Tech, Computer &amp; Information Systems Security / Information Assurance</div>
-      <div class="when">2025 — 2027 (in progress)</div>
-    </div>
-    <div class="edu">
-      <div class="school">Faculdade de Tecnologia de São Paulo — FATEC-SP</div>
-      <div class="degree">B.Tech, Computer Software Engineering</div>
-      <div class="when">Jan 2017 — Dec 2020</div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <div class="section-head"><span class="tag">06</span><h2>Get in touch</h2></div>
-    <p class="summary" style="margin-bottom:20px;">No contact form. Pick what you're actually here for — it opens a tracked GitHub issue with the right template, so the first message already gets to the point.</p>
-
-    <div class="terminal">
-      <div class="term-bar"><span class="tf"></span><span class="tf"></span><span class="tf"></span>&nbsp;&nbsp;contact — zsh</div>
-      <div class="term-body">
-        <div class="term-line"><span class="prompt">raphael@career</span> ~ % <span id="typed">./reach-out --select-intent</span></div>
-        <div class="term-options">
-          <a class="term-opt" href="https://github.com/zanarellidev/zanarellidev/issues/new?template=idea.yml" target="_blank" rel="noopener">
-            <span class="flag">--share-an-idea</span><span class="desc">You've got a project or concept worth discussing</span>
-          </a>
-          <a class="term-opt" href="https://github.com/zanarellidev/zanarellidev/issues/new?template=technical-sparring.yml" target="_blank" rel="noopener">
-            <span class="flag">--technical-question</span><span class="desc">Cloud, architecture, security, or reliability</span>
-          </a>
-          <a class="term-opt" href="https://github.com/zanarellidev/zanarellidev/issues/new?template=career.yml" target="_blank" rel="noopener">
-            <span class="flag">--career-advice</span><span class="desc">Navigating tech leadership, cloud, or security paths</span>
-          </a>
-          <a class="term-opt" href="https://github.com/zanarellidev/zanarellidev/issues/new?template=collaboration.yml" target="_blank" rel="noopener">
-            <span class="flag">--collaborate</span><span class="desc">Open source, side project, or knowledge exchange</span>
-          </a>
-          <a class="term-opt" href="https://www.linkedin.com/in/raphaelzanarelli" target="_blank" rel="noopener">
-            <span class="flag">--im-hiring</span><span class="desc">You're a recruiter or hiring manager — reach out on LinkedIn</span>
-          </a>
+      <section id="impacto">
+        <h2>Impacto</h2>
+        <div class="metrics">
+          <div class="metric"><strong>2 h → 5 min</strong><span>redução de MTTR com monitoramento proativo</span></div>
+          <div class="metric"><strong>85% → 99%</strong><span>evolução de confiabilidade após modernização</span></div>
+          <div class="metric"><strong>99,9%</strong><span>disponibilidade de sistemas empresariais</span></div>
         </div>
-        <div class="term-legend">tip: each <span style="color:var(--cyan)">--flag</span> opens a tracked GitHub issue with the right template pre-selected.</div>
-      </div>
-    </div>
-  </section>
+        <div class="grid" style="margin-top:18px">
+          <article class="card"><h3>Plataformas resilientes</h3><p>Reduzi o backlog de incidentes de 15 para zero com investigação de causa raiz e automação. Também melhorei o tempo de resposta de mais de um minuto para menos de dois segundos em aplicações críticas.</p></article>
+          <article class="card"><h3>Entrega e eficiência</h3><p>Modernizei ecossistemas de CI/CD, levando o time-to-market de aproximadamente duas horas para 20 minutos, e apoiei a otimização de custos e capacidade de infraestrutura.</p></article>
+          <article class="card"><h3>Arquitetura cloud-native</h3><p>Desenho soluções com microsserviços, observabilidade e práticas de segurança, mantendo foco em disponibilidade, desempenho e custo total de propriedade.</p></article>
+          <article class="card"><h3>IA aplicada ao produto</h3><p>Exploro IA como parceira de trabalho para aumentar a agilidade e o ROI de produtos de software, com visão técnica e de negócio.</p></article>
+        </div>
+      </section>
 
-</main>
+      <section id="experiencia">
+        <h2>Experiência</h2>
+        <ol class="timeline">
+          <li><div class="date">mai 2026 — atual<br>Grande São Paulo</div><div><h3>Engineering Brasil</h3><div class="meta">Software Development Senior Specialist</div></div></li>
+          <li><div class="date">mar 2026 — mai 2026<br>São Paulo, Brasil</div><div><h3>Porto</h3><div class="meta">Tech Lead</div></div></li>
+          <li><div class="date">nov 2022 — mar 2026<br>São Paulo, Brasil</div><div><h3>Claro Brasil</h3><div class="meta">Tech Lead</div></div></li>
+          <li><div class="date">set 2022 — mar 2026<br>São Paulo, Brasil</div><div><h3>Spread Tecnologia</h3><div class="meta">Tech Lead</div></div></li>
+          <li><div class="date">jul 2018 — set 2022<br>Grande São Paulo</div><div><h3>DXC Technology</h3><div class="meta">Software Engineer</div></div></li>
+          <li><div class="date">abr 2018 — jul 2018</div><div><h3>Invillia</h3><div class="meta">Software Engineer</div></div></li>
+        </ol>
+      </section>
 
-<footer>
-  built &amp; maintained by Raphael Zanarelli · <a href="https://github.com/zanarellidev" target="_blank" rel="noopener">github.com/zanarellidev</a>
-</footer>
+      <section id="open-source">
+        <h2>Contribuições recentes em open source</h2>
+        <p>Pull requests abertos em julho de 2026, com foco em confiabilidade, segurança, observabilidade e plataformas distribuídas.</p>
+        <div class="contributions">
+          <a class="contribution" href="https://github.com/grpc/grpc-go/pull/9275"><strong>gRPC-Go</strong><small>Garantia de invocação única para callback OnFinish</small></a>
+          <a class="contribution" href="https://github.com/cert-manager/cert-manager/pull/9081"><strong>cert-manager</strong><small>Correção de nil pointer em validação de identidade</small></a>
+          <a class="contribution" href="https://github.com/rook/rook/pull/18066"><strong>Rook</strong><small>Correção no wipe de dispositivos criptografados</small></a>
+          <a class="contribution" href="https://github.com/open-telemetry/opentelemetry-collector/pull/15679"><strong>OpenTelemetry Collector</strong><small>Validação de IDs em feature gates</small></a>
+          <a class="contribution" href="https://github.com/etcd-io/etcd/pull/22211"><strong>etcd</strong><small>Preservação de estado de líder em falhas de transação</small></a>
+          <a class="contribution" href="https://github.com/kubernetes/kubernetes/pull/140991"><strong>Kubernetes</strong><small>Cancelamento de probes em execução ao parar o worker</small></a>
+          <a class="contribution" href="https://github.com/cilium/cilium/pull/47568"><strong>Cilium</strong><small>Liberação de node ID órfão após remapeamento parcial</small></a>
+          <a class="contribution" href="https://github.com/istio/istio/pull/61024"><strong>Istio</strong><small>Persistência do backend iptables no CNI</small></a>
+        </div>
+      </section>
 
-</body>
+      <section id="formacao">
+        <h2>Formação e certificações</h2>
+        <div class="grid">
+          <article class="card"><h3>FATEC-SP</h3><p>Tecnólogo em Segurança de Sistemas de Informação · 2025–2027</p><p>Tecnólogo em Engenharia de Software · 2017–2020</p></article>
+          <article class="card"><h3>Certificações</h3><p>Oracle Data Platform (1Z0-1195-25) · AWS Well-Architected · Oracle Cloud Infrastructure (1Z0-1085-25) · Microsoft Azure AZ-900 · Amazon EKS</p></article>
+        </div>
+      </section>
+
+      <section id="competencias">
+        <h2>Competências</h2>
+        <div class="skills"><span>Arquitetura de Software</span><span>Cloud-native</span><span>Segurança da Informação</span><span>SDLC</span><span>CI/CD</span><span>Observabilidade</span><span>Microsserviços</span><span>Kubernetes</span><span>Performance</span><span>AI co-working</span></div>
+      </section>
+    </main>
+    <footer class="wrap">© 2026 Raphael Zanarelli · Construído e publicado com GitHub Pages.</footer>
+  </body>
 </html>
