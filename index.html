@@ -39,6 +39,8 @@
       .timeline li:last-child { border:0; }
       .date, .meta { color:var(--muted); font-size:.93rem; }
       .timeline p { margin:6px 0 0; }
+      .subhead { margin:30px 0 14px; color:var(--navy); font-size:1.05rem; }
+      .subhead:first-of-type { margin-top:0; }
       .contributions { display:grid; grid-template-columns:repeat(2, 1fr); gap:12px; }
       .contribution { display:block; padding:18px 20px; border:1px solid var(--line); border-radius:10px; background:var(--paper); color:var(--ink); text-decoration:none; }
       .contribution:hover { border-color:#75c9c2; box-shadow:0 5px 18px #11364c12; color:var(--ink); }
@@ -101,23 +103,23 @@
       </section>
 
       <section id="open-source">
-        <h2>Contribuições recentes em open source</h2>
-        <p>Pull requests abertos em julho de 2026, com foco em confiabilidade, segurança, observabilidade e plataformas distribuídas.</p>
+        <h2>Contribuições em open source</h2>
+        <p>Pull requests mergeados e vulnerabilidades confirmadas em projetos de infraestrutura e plataformas distribuídas.</p>
+
+        <h3 class="subhead">Pull requests mergeados</h3>
         <div class="contributions">
-          <a class="contribution" href="https://github.com/cert-manager/cert-manager/pull/9081"><strong>cert-manager</strong><small>Correção de nil pointer em validação de identidade</small></a>
-          <a class="contribution" href="https://github.com/rook/rook/pull/18066"><strong>Rook</strong><small>Correção no wipe de dispositivos criptografados</small></a>
-          <a class="contribution" href="https://github.com/open-telemetry/opentelemetry-collector/pull/15679"><strong>OpenTelemetry Collector</strong><small>Validação de IDs em feature gates</small></a>
-          <a class="contribution" href="https://github.com/etcd-io/etcd/pull/22211"><strong>etcd</strong><small>Preservação de estado de líder em falhas de transação</small></a>
-          <a class="contribution" href="https://github.com/kubernetes/kubernetes/pull/140991"><strong>Kubernetes</strong><small>Cancelamento de probes em execução ao parar o worker</small></a>
-          <a class="contribution" href="https://github.com/cilium/cilium/pull/47568"><strong>Cilium</strong><small>Liberação de node ID órfão após remapeamento parcial</small></a>
-          <a class="contribution" href="https://github.com/istio/istio/pull/61024"><strong>Istio</strong><small>Persistência do backend iptables no CNI</small></a>
-          <a class="contribution" href="https://github.com/kubernetes/kubernetes/pull/141061"><strong>Kubernetes</strong><small>Métricas de volume para pods sem PVC (emptyDir, secret, etc.)</small></a>
-          <a class="contribution" href="https://github.com/kubernetes-sigs/kustomize/pull/6208"><strong>Kustomize</strong><small>Escape de nomes de imagem antes de interpolar em regex</small></a>
-          <a class="contribution" href="https://github.com/fluent/fluent-bit/pull/12187"><strong>Fluent Bit</strong><small>Correção de leitura fora dos limites em strings não terminadas</small></a>
-          <a class="contribution" href="https://github.com/helm/helm/pull/32501"><strong>Helm</strong><small>Retry em conflito de ResourceQuota no server-side apply (update)</small></a>
-          <a class="contribution" href="https://github.com/helm/helm/pull/32502"><strong>Helm</strong><small>Correção de panic em plugin de post-renderer com saída malformada</small></a>
-          <a class="contribution" href="https://github.com/prometheus/prometheus/pull/19298"><strong>Prometheus</strong><small>Proposta (draft) de descoberta de recursos do Gateway API</small></a>
-          <a class="contribution" href="https://github.com/prometheus/prometheus/pull/19309"><strong>Prometheus</strong><small>Correção de serialização JSON do Regexp para valor nulo</small></a>
+          <a class="contribution" href="https://github.com/fluxcd/notification-controller/pull/1358"><strong>Flux (notification-controller)</strong><small>Cobertura de teste para respostas 2xx do webhook, incluindo 204</small></a>
+          <a class="contribution" href="https://github.com/klauspost/compress/pull/1182"><strong>klauspost/compress</strong><small>Correção de race condition em dicionário compartilhado no zstd</small></a>
+          <a class="contribution" href="https://github.com/klauspost/compress/pull/1183"><strong>klauspost/compress</strong><small>GitHub Action do OpenSSF Scorecard</small></a>
+          <a class="contribution" href="https://github.com/klauspost/compress/pull/1184"><strong>klauspost/compress</strong><small>Correção de offsets inválidos no BuildDict do zstd</small></a>
+          <a class="contribution" href="https://github.com/envoyproxy/gateway/pull/9634"><strong>Envoy Gateway</strong><small>Reconciliação de ListenerSet ao renovar o Secret TLS referenciado</small></a>
+          <a class="contribution" href="https://github.com/fluent/fluent-bit/pull/12222"><strong>Fluent Bit</strong><small>Correção de parsing inseguro de MessagePack no in_kubernetes_events (mergeado a partir do PR #12187, autoria preservada)</small></a>
+        </div>
+
+        <h3 class="subhead">CVEs confirmadas</h3>
+        <div class="contributions">
+          <a class="contribution" href="https://github.com/apache/airflow/security/advisories/GHSA-f3c2-j7g8-vpp8"><strong>Apache Airflow — CVE-2026-68970</strong><small>Vazamento de segredos em Variables do tipo lista, sem mascaramento nos logs de task</small></a>
+          <a class="contribution" href="https://github.com/moby/buildkit"><strong>moby/buildkit</strong><small>Exposição de credenciais em URL, confirmada pela equipe de segurança da Docker (GHSA-2jhm-rc59-3r2h); CVE formal ainda não publicado</small></a>
         </div>
       </section>
 
