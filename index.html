@@ -43,9 +43,12 @@
       .subhead:first-of-type { margin-top:0; }
       .contributions { display:grid; grid-template-columns:repeat(2, 1fr); gap:12px; }
       .contribution { display:block; padding:18px 20px; border:1px solid var(--line); border-radius:10px; background:var(--paper); color:var(--ink); text-decoration:none; }
-      .contribution:hover { border-color:#75c9c2; box-shadow:0 5px 18px #11364c12; color:var(--ink); }
+      a.contribution:hover { border-color:#75c9c2; box-shadow:0 5px 18px #11364c12; color:var(--ink); }
       .contribution strong { display:block; color:var(--navy); }
       .contribution small { color:var(--muted); }
+      .contribution-list { list-style:none; margin:8px 0 0; padding:0; display:flex; flex-direction:column; gap:8px; font-size:.92rem; color:var(--muted); }
+      .contribution-list li { line-height:1.45; }
+      .contribution-list a { font-weight:600; }
       .skills { display:flex; flex-wrap:wrap; gap:9px; }
       .skills span { padding:6px 11px; border-radius:999px; background:#e9eef2; color:#344554; font-size:.91rem; }
       footer { padding:28px 0 46px; border-top:1px solid var(--line); color:var(--muted); font-size:.92rem; }
@@ -109,15 +112,25 @@
         <h3 class="subhead">Pull requests mergeados</h3>
         <div class="contributions">
           <a class="contribution" href="https://github.com/fluxcd/notification-controller/pull/1358"><strong>Flux (notification-controller)</strong><small>Cobertura de teste para respostas 2xx do webhook, incluindo 204</small></a>
-          <a class="contribution" href="https://github.com/klauspost/compress/pull/1182"><strong>klauspost/compress</strong><small>Correção de race condition em dicionário compartilhado no zstd</small></a>
-          <a class="contribution" href="https://github.com/klauspost/compress/pull/1183"><strong>klauspost/compress</strong><small>GitHub Action do OpenSSF Scorecard</small></a>
-          <a class="contribution" href="https://github.com/klauspost/compress/pull/1184"><strong>klauspost/compress</strong><small>Correção de offsets inválidos no BuildDict do zstd</small></a>
+          <div class="contribution">
+            <strong>klauspost/compress</strong>
+            <ul class="contribution-list">
+              <li><a href="https://github.com/klauspost/compress/pull/1182">PR #1182</a> — Correção de race condition em dicionário compartilhado no zstd</li>
+              <li><a href="https://github.com/klauspost/compress/pull/1183">PR #1183</a> — GitHub Action do OpenSSF Scorecard</li>
+              <li><a href="https://github.com/klauspost/compress/pull/1184">PR #1184</a> — Correção de offsets inválidos no BuildDict do zstd</li>
+            </ul>
+          </div>
           <a class="contribution" href="https://github.com/envoyproxy/gateway/pull/9634"><strong>Envoy Gateway</strong><small>Reconciliação de ListenerSet ao renovar o Secret TLS referenciado</small></a>
           <a class="contribution" href="https://github.com/fluent/fluent-bit/pull/12222"><strong>Fluent Bit</strong><small>Correção de parsing inseguro de MessagePack no in_kubernetes_events (mergeado a partir do PR #12187, autoria preservada)</small></a>
           <a class="contribution" href="https://github.com/kubernetes-sigs/cluster-api/pull/14022"><strong>Kubernetes Cluster API</strong><small>Esclarecimento na documentação sobre a semântica de full-replace em patches JSON de labels/annotations</small></a>
           <a class="contribution" href="https://github.com/apache/hop/pull/8027"><strong>Apache Hop</strong><small>Correção de vazamento de segredos na serialização JSON de execuções (parâmetros de pipeline não eram mascarados)</small></a>
-          <a class="contribution" href="https://github.com/kubernetes-sigs/external-dns/pull/6611"><strong>Kubernetes ExternalDNS</strong><small>Correção de avaliação de templates de FQDN em objetos tipados, alinhando o comportamento ao das unstructured sources</small></a>
-          <a class="contribution" href="https://github.com/kubernetes-sigs/external-dns/pull/6644"><strong>Kubernetes ExternalDNS</strong><small>Reordenação da resolução de hostnames em rotas Gateway API: anotações agora são coletadas antes da avaliação do template de FQDN</small></a>
+          <div class="contribution">
+            <strong>Kubernetes ExternalDNS</strong>
+            <ul class="contribution-list">
+              <li><a href="https://github.com/kubernetes-sigs/external-dns/pull/6611">PR #6611</a> — Correção de avaliação de templates de FQDN em objetos tipados, alinhando o comportamento ao das unstructured sources</li>
+              <li><a href="https://github.com/kubernetes-sigs/external-dns/pull/6644">PR #6644</a> — Reordenação da resolução de hostnames em rotas Gateway API: anotações coletadas antes do template FQDN</li>
+            </ul>
+          </div>
           <a class="contribution" href="https://github.com/apache/kyuubi/commit/3bc223dbec2ace1692ba22769404c9dd329981ed"><strong>Apache Kyuubi</strong><small>Definição de regex padrão para mascaramento de dados sensíveis na configuração de redaction da API do servidor</small></a>
           <a class="contribution" href="https://github.com/dapr/dapr/pull/10307"><strong>Dapr (Distributed Application Runtime)</strong><small>Identificação e resolução de race condition de cancel/completion em workflows em clustered deployment (Issue #10305 / PR #10307)</small></a>
         </div>
