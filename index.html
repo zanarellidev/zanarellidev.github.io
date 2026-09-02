@@ -43,6 +43,7 @@
       .subhead:first-of-type { margin-top:0; }
       .contributions { display:grid; grid-template-columns:repeat(2, 1fr); gap:12px; }
       .contribution { display:block; padding:18px 20px; border:1px solid var(--line); border-radius:10px; background:var(--paper); color:var(--ink); text-decoration:none; }
+      .contribution.full { grid-column:1 / -1; }
       a.contribution:hover { border-color:#75c9c2; box-shadow:0 5px 18px #11364c12; color:var(--ink); }
       .contribution strong { display:block; color:var(--navy); }
       .contribution small { color:var(--muted); }
@@ -118,12 +119,6 @@
             </ul>
           </div>
           <div class="contribution">
-            <strong>Pika (RabbitMQ client)</strong>
-            <ul class="contribution-list">
-              <li><a href="https://github.com/pika/pika/pull/1697">PR #1697</a> — Correção de self-deadlock em <code>Connection.close()</code> quando invocado a partir de callbacks de consumidor ou worker de eventos (#1686)</li>
-            </ul>
-          </div>
-          <div class="contribution">
             <strong>Istio</strong>
             <ul class="contribution-list">
               <li><a href="https://github.com/istio/istio/pull/61024">PR #61024</a> — Correção no CNI em ambient mode impedindo alternância indevida de backend iptables (legacy vs nft) entre restarts consecutivos</li>
@@ -153,6 +148,12 @@
             </ul>
           </div>
           <div class="contribution">
+            <strong>Pika (RabbitMQ client)</strong>
+            <ul class="contribution-list">
+              <li><a href="https://github.com/pika/pika/pull/1697">PR #1697</a> — Correção de self-deadlock em <code>Connection.close()</code> quando invocado a partir de callbacks de consumidor ou worker de eventos (#1686)</li>
+            </ul>
+          </div>
+          <div class="contribution">
             <strong>Prometheus</strong>
             <ul class="contribution-list">
               <li><a href="https://github.com/prometheus/procfs/pull/855">procfs · PR #855</a> — Correção na documentação técnica do parser de métricas (/proc/stat) e otimização de performance em Go reaproveitando variável de linha</li>
@@ -170,7 +171,7 @@
           <a class="contribution" href="https://github.com/envoyproxy/gateway/pull/9634"><strong>Envoy Gateway</strong><small>Reconciliação de ListenerSet ao renovar o Secret TLS referenciado</small></a>
           <a class="contribution" href="https://github.com/apache/kyuubi/commit/3bc223dbec2ace1692ba22769404c9dd329981ed"><strong>Apache Kyuubi</strong><small>Definição de regex padrão para mascaramento de dados sensíveis na configuração de redaction da API do servidor</small></a>
           <a class="contribution" href="https://github.com/fluxcd/notification-controller/pull/1358"><strong>Flux (notification-controller)</strong><small>Cobertura de teste para respostas 2xx do webhook, incluindo 204</small></a>
-          <a class="contribution" href="https://github.com/iluwatar/java-design-patterns/pull/3583"><strong>Java Design Patterns</strong><small>Localização e tradução para português (pt-BR) dos padrões polling-publisher, money e delegation</small></a>
+          <a class="contribution full" href="https://github.com/iluwatar/java-design-patterns/pull/3583"><strong>Java Design Patterns</strong><small>Localização e tradução para português (pt-BR) dos padrões polling-publisher, money e delegation</small></a>
         </div>
 
         <h3 class="subhead">CVEs confirmadas</h3>
