@@ -41,18 +41,15 @@
       .timeline p { margin:6px 0 0; }
       .subhead { margin:30px 0 14px; color:var(--navy); font-size:1.05rem; }
       .subhead:first-of-type { margin-top:0; }
-      .contributions { display:grid; grid-template-columns:repeat(2, 1fr); gap:12px; }
-      .contribution { display:block; padding:18px 20px; border:1px solid var(--line); border-radius:10px; background:var(--paper); color:var(--ink); text-decoration:none; }
-      .contribution.full { grid-column:1 / -1; }
+      .contributions { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:12px; align-items:stretch; }
+      .contribution { display:flex; min-width:0; flex-direction:column; gap:6px; padding:18px 20px; border:1px solid var(--line); border-radius:10px; background:var(--paper); color:var(--ink); text-decoration:none; }
       a.contribution:hover { border-color:#75c9c2; box-shadow:0 5px 18px #11364c12; color:var(--ink); }
       .contribution strong { display:block; color:var(--navy); }
-      .contribution small { color:var(--muted); }
-      .contribution-list { list-style:none; margin:8px 0 0; padding:0; display:flex; flex-direction:column; gap:8px; font-size:.92rem; color:var(--muted); }
-      .contribution-list li { line-height:1.45; }
-      .contribution-list a { font-weight:600; }
+      .contribution small { display:block; color:var(--muted); font-size:.92rem; line-height:1.5; }
       .skills { display:flex; flex-wrap:wrap; gap:9px; }
       .skills span { padding:6px 11px; border-radius:999px; background:#e9eef2; color:#344554; font-size:.91rem; }
       footer { padding:28px 0 46px; border-top:1px solid var(--line); color:var(--muted); font-size:.92rem; }
+      @media (max-width:900px) { .contributions { grid-template-columns:repeat(2, minmax(0, 1fr)); } }
       @media (max-width:720px) { header { padding:55px 0 48px; } .intro, .grid { grid-template-columns:1fr; gap:26px; } .metrics, .contributions { grid-template-columns:1fr; } .timeline li { grid-template-columns:1fr; gap:3px; } }
     </style>
   </head>
@@ -112,72 +109,27 @@
 
         <h3 class="subhead">Pull requests mergeados</h3>
         <div class="contributions">
-          <div class="contribution">
-            <strong>OpenTelemetry Collector</strong>
-            <ul class="contribution-list">
-              <li><a href="https://github.com/open-telemetry/opentelemetry-collector/pull/15679">PR #15679</a> — Validação mais estrita de IDs de feature gates, rejeitando segmentos vazios causados por pontos no início, no fim ou consecutivos</li>
-            </ul>
-          </div>
-          <div class="contribution">
-            <strong>Open Policy Agent (OPA)</strong>
-            <ul class="contribution-list">
-              <li><a href="https://github.com/open-policy-agent/opa/pull/8962">PR #8962</a> — Correção de reuso de buffer na análise de segurança do AST (reorderBodyForSafety), garantindo a avaliação correta de variáveis em igualdades e compreensões (#8302)</li>
-            </ul>
-          </div>
-          <div class="contribution">
-            <strong>Istio</strong>
-            <ul class="contribution-list">
-              <li><a href="https://github.com/istio/istio/pull/61024">PR #61024</a> — Correção no CNI em ambient mode impedindo alternância indevida de backend iptables (legacy vs nft) entre restarts consecutivos</li>
-            </ul>
-          </div>
-          <div class="contribution">
-            <strong>Kubernetes</strong>
-            <ul class="contribution-list">
-              <li><a href="https://github.com/kubernetes-sigs/external-dns/pull/6611">ExternalDNS · PR #6611</a> — Correção de avaliação de templates de FQDN em objetos tipados, alinhando o comportamento ao das unstructured sources</li>
-              <li><a href="https://github.com/kubernetes-sigs/external-dns/pull/6644">ExternalDNS · PR #6644</a> — Reordenação da resolução de hostnames em rotas Gateway API: anotações coletadas antes do template FQDN</li>
-              <li><a href="https://github.com/kubernetes-sigs/cluster-api/pull/14022">Cluster API · PR #14022</a> — Esclarecimento na documentação sobre a semântica de full-replace em patches JSON de labels/annotations</li>
-            </ul>
-          </div>
-          <div class="contribution">
-            <strong>klauspost/compress</strong>
-            <ul class="contribution-list">
-              <li><a href="https://github.com/klauspost/compress/pull/1182">zstd · PR #1182</a> — Correção de race condition de escrita concorrente em dicionário treinado compartilhado no encoder zstd</li>
-              <li><a href="https://github.com/klauspost/compress/pull/1183">OpenSSF · PR #1183</a> — Integração do GitHub Action do OpenSSF Scorecard para auditoria contínua de segurança na supply chain</li>
-              <li><a href="https://github.com/klauspost/compress/pull/1184">zstd · PR #1184</a> — Prevenção de offsets negativos e corrupção de estado no algoritmo de geração de dicionários (BuildDict)</li>
-            </ul>
-          </div>
-          <div class="contribution">
-            <strong>Apache Hop</strong>
-            <ul class="contribution-list">
-              <li><a href="https://github.com/apache/hop/pull/8094">PR #8094</a> — Suporte a argumentos ocultos na Shell Action para mascaramento seguro (***) e prevenção de vazamento de credenciais em logs de execução e UI</li>
-              <li><a href="https://github.com/apache/hop/pull/8027">PR #8027</a> — Correção de vazamento de segredos na serialização JSON de execuções (parâmetros de pipeline não eram mascarados)</li>
-            </ul>
-          </div>
-          <div class="contribution">
-            <strong>Pika (RabbitMQ client)</strong>
-            <ul class="contribution-list">
-              <li><a href="https://github.com/pika/pika/pull/1697">PR #1697</a> — Correção de self-deadlock em <code>Connection.close()</code> quando invocado a partir de callbacks de consumidor ou worker de eventos (#1686)</li>
-            </ul>
-          </div>
-          <div class="contribution">
-            <strong>Prometheus</strong>
-            <ul class="contribution-list">
-              <li><a href="https://github.com/prometheus/procfs/pull/855">procfs · PR #855</a> — Correção na documentação técnica do parser de métricas (/proc/stat) e otimização de performance em Go reaproveitando variável de linha</li>
-            </ul>
-          </div>
-          <div class="contribution">
-            <strong>Langflow AI</strong>
-            <ul class="contribution-list">
-              <li><a href="https://github.com/langflow-ai/langflow/pull/14758">PR #14758</a> — Suporte ao parâmetro Top-K para Amazon Bedrock Converse e perfis de inferência cross-region (co-autor: commit e testes originados do <a href="https://github.com/langflow-ai/langflow/pull/14717">PR #14717</a>)</li>
-            </ul>
-          </div>
-          <a class="contribution" href="https://github.com/crossplane/docs/pull/1130"><strong>Crossplane</strong><small>Atualização e correção na documentação oficial de instalação substituindo exemplos de feature flags descontinuadas (PR #1130)</small></a>
-          <a class="contribution" href="https://github.com/dapr/dapr/pull/10307"><strong>Dapr (Distributed Application Runtime)</strong><small>Identificação e resolução de race condition de cancel/completion em workflows em clustered deployment (Issue #10305 / PR #10307)</small></a>
-          <a class="contribution" href="https://github.com/fluent/fluent-bit/pull/12222"><strong>Fluent Bit</strong><small>Correção de parsing inseguro de MessagePack no in_kubernetes_events (mergeado a partir do PR #12187, autoria preservada)</small></a>
-          <a class="contribution" href="https://github.com/envoyproxy/gateway/pull/9634"><strong>Envoy Gateway</strong><small>Reconciliação de ListenerSet ao renovar o Secret TLS referenciado</small></a>
-          <a class="contribution" href="https://github.com/apache/kyuubi/commit/3bc223dbec2ace1692ba22769404c9dd329981ed"><strong>Apache Kyuubi</strong><small>Definição de regex padrão para mascaramento de dados sensíveis na configuração de redaction da API do servidor</small></a>
-          <a class="contribution" href="https://github.com/fluxcd/notification-controller/pull/1358"><strong>Flux (notification-controller)</strong><small>Cobertura de teste para respostas 2xx do webhook, incluindo 204</small></a>
-          <a class="contribution full" href="https://github.com/iluwatar/java-design-patterns/pull/3583"><strong>Java Design Patterns</strong><small>Localização e tradução para português (pt-BR) dos padrões polling-publisher, money e delegation</small></a>
+          <a class="contribution" href="https://github.com/open-telemetry/opentelemetry-collector/pull/15679"><strong>OpenTelemetry Collector · PR #15679</strong><small>Validação mais estrita de IDs de feature gates, rejeitando segmentos vazios.</small></a>
+          <a class="contribution" href="https://github.com/open-policy-agent/opa/pull/8962"><strong>Open Policy Agent · PR #8962</strong><small>Correção de reuso de buffer na análise de segurança do AST.</small></a>
+          <a class="contribution" href="https://github.com/istio/istio/pull/61024"><strong>Istio · PR #61024</strong><small>Correção no CNI que impede a alternância indevida entre backends de iptables.</small></a>
+          <a class="contribution" href="https://github.com/pika/pika/pull/1697"><strong>Pika · PR #1697</strong><small>Correção de self-deadlock em <code>Connection.close()</code> durante callbacks.</small></a>
+          <a class="contribution" href="https://github.com/kubernetes-sigs/external-dns/pull/6611"><strong>ExternalDNS · PR #6611</strong><small>Correção da avaliação de templates FQDN em objetos tipados.</small></a>
+          <a class="contribution" href="https://github.com/kubernetes-sigs/external-dns/pull/6644"><strong>ExternalDNS · PR #6644</strong><small>Resolução correta de hostnames em rotas Gateway API antes do template FQDN.</small></a>
+          <a class="contribution" href="https://github.com/kubernetes-sigs/cluster-api/pull/14022"><strong>Cluster API · PR #14022</strong><small>Documentação da semântica de full-replace em patches JSON.</small></a>
+          <a class="contribution" href="https://github.com/klauspost/compress/pull/1182"><strong>klauspost/compress · PR #1182</strong><small>Correção de race condition no encoder zstd.</small></a>
+          <a class="contribution" href="https://github.com/klauspost/compress/pull/1183"><strong>klauspost/compress · PR #1183</strong><small>Integração do OpenSSF Scorecard para auditoria contínua da supply chain.</small></a>
+          <a class="contribution" href="https://github.com/klauspost/compress/pull/1184"><strong>klauspost/compress · PR #1184</strong><small>Prevenção de offsets negativos e corrupção de estado no <code>BuildDict</code>.</small></a>
+          <a class="contribution" href="https://github.com/apache/hop/pull/8094"><strong>Apache Hop · PR #8094</strong><small>Argumentos ocultos na Shell Action para prevenir vazamento de credenciais.</small></a>
+          <a class="contribution" href="https://github.com/apache/hop/pull/8027"><strong>Apache Hop · PR #8027</strong><small>Correção de vazamento de segredos na serialização JSON de execuções.</small></a>
+          <a class="contribution" href="https://github.com/prometheus/procfs/pull/855"><strong>Prometheus procfs · PR #855</strong><small>Correção técnica e otimização no parser de <code>/proc/stat</code>.</small></a>
+          <a class="contribution" href="https://github.com/langflow-ai/langflow/pull/14758"><strong>Langflow AI · PR #14758</strong><small>Top-K no Amazon Bedrock Converse e perfis de inferência cross-region.</small></a>
+          <a class="contribution" href="https://github.com/crossplane/docs/pull/1130"><strong>Crossplane · PR #1130</strong><small>Atualização da documentação de instalação para remover feature flags obsoletas.</small></a>
+          <a class="contribution" href="https://github.com/dapr/dapr/pull/10307"><strong>Dapr · PR #10307</strong><small>Correção de race condition em workflows executados em cluster.</small></a>
+          <a class="contribution" href="https://github.com/fluent/fluent-bit/pull/12222"><strong>Fluent Bit · PR #12222</strong><small>Correção de parsing inseguro de MessagePack no <code>in_kubernetes_events</code>.</small></a>
+          <a class="contribution" href="https://github.com/envoyproxy/gateway/pull/9634"><strong>Envoy Gateway · PR #9634</strong><small>Reconciliação de <code>ListenerSet</code> após renovação do Secret TLS.</small></a>
+          <a class="contribution" href="https://github.com/apache/kyuubi/commit/3bc223dbec2ace1692ba22769404c9dd329981ed"><strong>Apache Kyuubi · commit 3bc223d</strong><small>Regex padrão para mascaramento de dados sensíveis na API do servidor.</small></a>
+          <a class="contribution" href="https://github.com/fluxcd/notification-controller/pull/1358"><strong>Flux · PR #1358</strong><small>Cobertura de teste para respostas HTTP 2xx do webhook, incluindo 204.</small></a>
+          <a class="contribution" href="https://github.com/iluwatar/java-design-patterns/pull/3583"><strong>Java Design Patterns · PR #3583</strong><small>Localização pt-BR dos padrões Polling Publisher, Money e Delegation.</small></a>
         </div>
 
         <h3 class="subhead">CVEs e vulnerabilidades confirmadas</h3>
