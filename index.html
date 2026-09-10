@@ -113,6 +113,12 @@
         <h3 class="subhead">Pull requests mergeados</h3>
         <div class="contributions">
           <div class="contribution">
+            <strong>OpenTelemetry Collector</strong>
+            <ul class="contribution-list">
+              <li><a href="https://github.com/open-telemetry/opentelemetry-collector/pull/15679">PR #15679</a> — Validação mais estrita de IDs de feature gates, rejeitando segmentos vazios causados por pontos no início, no fim ou consecutivos</li>
+            </ul>
+          </div>
+          <div class="contribution">
             <strong>Open Policy Agent (OPA)</strong>
             <ul class="contribution-list">
               <li><a href="https://github.com/open-policy-agent/opa/pull/8962">PR #8962</a> — Correção de reuso de buffer na análise de segurança do AST (reorderBodyForSafety), garantindo a avaliação correta de variáveis em igualdades e compreensões (#8302)</li>
@@ -174,13 +180,13 @@
           <a class="contribution full" href="https://github.com/iluwatar/java-design-patterns/pull/3583"><strong>Java Design Patterns</strong><small>Localização e tradução para português (pt-BR) dos padrões polling-publisher, money e delegation</small></a>
         </div>
 
-        <h3 class="subhead">CVEs confirmadas</h3>
+        <h3 class="subhead">CVEs e vulnerabilidades confirmadas</h3>
         <div class="contributions">
           <a class="contribution" href="https://github.com/advisories/GHSA-f3c2-j7g8-vpp8"><strong>Apache Airflow — CVE-2026-68970</strong><small>Vazamento de segredos em Variables do tipo lista JSON sem mascaramento em logs de task e Rendered Templates (GHSA-f3c2-j7g8-vpp8) · Corrigido no Airflow 3.3.1 · Publicada em ago/2026</small></a>
           <div class="contribution"><strong>Spring AI — CVE-2026-59361</strong><small>Vulnerabilidade aceita e CVE formalmente pré-atribuído pela equipe VMware / Spring Security; divulgação pública e patch em andamento (sob embargo)</small></div>
           <div class="contribution"><strong>Apache Hop</strong><small>Vulnerabilidade aceita pela equipe de segurança; divulgação pública ainda pendente</small></div>
           <div class="contribution"><strong>Docker/BuildKit</strong><small>Vulnerabilidade confirmada pela equipe de segurança da Docker; divulgação pública ainda pendente</small></div>
-          <div class="contribution"><strong>Kyverno</strong><small>Vulnerabilidade confirmada pela equipe de segurança do Kyverno; divulgação pública ainda pendente</small></div>
+          <a class="contribution" href="https://github.com/kyverno/kyverno/security/advisories/GHSA-5cjf-wwfg-pj4c"><strong>Kyverno — GHSA-5cjf-wwfg-pj4c</strong><small>Bypass de verificação de assinatura de imagens por aplicação incorreta do escopo de PolicyException · Severidade alta (CVSS 7,7) · Corrigido no Kyverno 1.19.1 · Crédito oficial como reporter</small></a>
           <div class="contribution"><strong>Containerd</strong><small>Vulnerabilidade aceita pela equipe de segurança; divulgação pública ainda pendente</small></div>
         </div>
       </section>
