@@ -41,16 +41,13 @@
       .timeline p { margin:6px 0 0; }
       .subhead { margin:30px 0 14px; color:var(--navy); font-size:1.05rem; }
       .subhead:first-of-type { margin-top:0; }
-      .contributions { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:12px; align-items:stretch; }
-      .contribution { display:flex; min-width:0; flex-direction:column; gap:6px; padding:18px 20px; border:1px solid var(--line); border-radius:10px; background:var(--paper); color:var(--ink); text-decoration:none; }
-      a.contribution:hover { border-color:#75c9c2; box-shadow:0 5px 18px #11364c12; color:var(--ink); }
-      .contribution strong { display:block; color:var(--navy); }
-      .contribution small { display:block; color:var(--muted); font-size:.92rem; line-height:1.5; }
+      .chips { display:flex; flex-wrap:wrap; gap:8px; }
+      .chip { padding:6px 13px; border:1px solid var(--line); border-radius:999px; background:var(--paper); color:var(--navy); font-size:.9rem; font-weight:600; text-decoration:none; }
+      a.chip:hover { border-color:#75c9c2; box-shadow:0 3px 12px #11364c12; color:var(--navy); }
       .skills { display:flex; flex-wrap:wrap; gap:9px; }
       .skills span { padding:6px 11px; border-radius:999px; background:#e9eef2; color:#344554; font-size:.91rem; }
       footer { padding:28px 0 46px; border-top:1px solid var(--line); color:var(--muted); font-size:.92rem; }
-      @media (max-width:900px) { .contributions { grid-template-columns:repeat(2, minmax(0, 1fr)); } }
-      @media (max-width:720px) { header { padding:55px 0 48px; } .intro, .grid { grid-template-columns:1fr; gap:26px; } .metrics, .contributions { grid-template-columns:1fr; } .timeline li { grid-template-columns:1fr; gap:3px; } }
+      @media (max-width:720px) { header { padding:55px 0 48px; } .intro, .grid { grid-template-columns:1fr; gap:26px; } .metrics { grid-template-columns:1fr; } .timeline li { grid-template-columns:1fr; gap:3px; } }
     </style>
   </head>
   <body>
@@ -87,7 +84,7 @@
           <article class="card"><h3>Plataformas resilientes</h3><p>Reduzi o backlog de incidentes de 15 para zero com investigação de causa raiz e automação. Também aumentei o suporte de carga em 20x em serviços que atendem sistemas críticos de vendas e atendimento.</p></article>
           <article class="card"><h3>Entrega e eficiência</h3><p>Modernizei ecossistemas de CI/CD, levando o time-to-market de aproximadamente duas horas para 20 minutos, e realizei otimização de capacidade, reduzindo em 90% o consumo de infraestrutura, com economia total estimada de R$ 1.000.000+ em 5 anos.</p></article>
           <article class="card"><h3>Arquitetura cloud-native</h3><p>Desenho soluções com microsserviços, observabilidade e práticas de segurança, mantendo foco em disponibilidade, desempenho e custo total de propriedade.</p></article>
-          <article class="card"><h3>IA aplicada ao produto</h3><p>Exploro IA como parceira de trabalho para aumentar a agilidade e o ROI de produtos de software, com visão técnica e de negócio.</p></article>
+          <article class="card"><h3>IA aplicada ao produto</h3><p>Exploro IA como parceira de trabalho para aumentar a agilidade e o ROI de produtos de software, sempre com humano à frente das decisões técnicas e de negócio.</p></article>
         </div>
       </section>
 
@@ -108,43 +105,38 @@
         <p>Pull requests mergeados e vulnerabilidades confirmadas em projetos de infraestrutura e plataformas distribuídas.</p>
 
         <h3 class="subhead">Pull requests mergeados</h3>
-        <div class="contributions">
-          <a class="contribution" href="https://github.com/kedacore/keda/pull/8126"><strong>KEDA · PR #8126</strong></a>
-          <a class="contribution" href="https://github.com/spring-projects/spring-session/pull/3884"><strong>Spring Session · PR #3884</strong></a>
-          <a class="contribution" href="https://github.com/open-telemetry/opentelemetry-collector/pull/15679"><strong>OpenTelemetry Collector · PR #15679</strong></a>
-          <a class="contribution" href="https://github.com/open-telemetry/opentelemetry-collector-contrib/pull/50124"><strong>OpenTelemetry Collector Contrib · PR #50124</strong></a>
-          <a class="contribution" href="https://github.com/open-policy-agent/opa/pull/8962"><strong>Open Policy Agent · PR #8962</strong></a>
-          <a class="contribution" href="https://github.com/istio/istio/pull/61024"><strong>Istio · PR #61024</strong></a>
-          <a class="contribution" href="https://github.com/pika/pika/pull/1697"><strong>Pika · PR #1697</strong></a>
-          <a class="contribution" href="https://github.com/kubernetes-sigs/external-dns/pull/6611"><strong>ExternalDNS · PR #6611</strong></a>
-          <a class="contribution" href="https://github.com/kubernetes-sigs/external-dns/pull/6644"><strong>ExternalDNS · PR #6644</strong></a>
-          <a class="contribution" href="https://github.com/kubernetes-sigs/external-dns/pull/6694"><strong>ExternalDNS · PR #6694</strong></a>
-          <a class="contribution" href="https://github.com/kubernetes-sigs/cluster-api/pull/14022"><strong>Cluster API · PR #14022</strong></a>
-          <a class="contribution" href="https://github.com/klauspost/compress/pull/1182"><strong>klauspost/compress · PR #1182</strong></a>
-          <a class="contribution" href="https://github.com/klauspost/compress/pull/1183"><strong>klauspost/compress · PR #1183</strong></a>
-          <a class="contribution" href="https://github.com/klauspost/compress/pull/1184"><strong>klauspost/compress · PR #1184</strong></a>
-          <a class="contribution" href="https://github.com/apache/hop/pull/8094"><strong>Apache Hop · PR #8094</strong></a>
-          <a class="contribution" href="https://github.com/apache/hop/pull/8027"><strong>Apache Hop · PR #8027</strong></a>
-          <a class="contribution" href="https://github.com/prometheus/procfs/pull/855"><strong>Prometheus procfs · PR #855</strong></a>
-          <a class="contribution" href="https://github.com/langflow-ai/langflow/pull/14758"><strong>Langflow AI · PR #14758</strong></a>
-          <a class="contribution" href="https://github.com/crossplane/docs/pull/1130"><strong>Crossplane · PR #1130</strong></a>
-          <a class="contribution" href="https://github.com/dapr/dapr/pull/10307"><strong>Dapr · PR #10307</strong></a>
-          <a class="contribution" href="https://github.com/fluent/fluent-bit/pull/12222"><strong>Fluent Bit · PR #12222</strong></a>
-          <a class="contribution" href="https://github.com/envoyproxy/gateway/pull/9634"><strong>Envoy Gateway · PR #9634</strong></a>
-          <a class="contribution" href="https://github.com/apache/kyuubi/commit/3bc223dbec2ace1692ba22769404c9dd329981ed"><strong>Apache Kyuubi · commit 3bc223d</strong></a>
-          <a class="contribution" href="https://github.com/fluxcd/notification-controller/pull/1358"><strong>Flux · PR #1358</strong></a>
-          <a class="contribution" href="https://github.com/iluwatar/java-design-patterns/pull/3583"><strong>Java Design Patterns · PR #3583</strong></a>
+        <div class="chips">
+          <a class="chip" href="https://github.com/kedacore/keda/pull/8126">KEDA</a>
+          <a class="chip" href="https://github.com/spring-projects/spring-session/pull/3884">Spring Session</a>
+          <a class="chip" href="https://github.com/open-telemetry/opentelemetry-collector/pull/15679">OpenTelemetry Collector</a>
+          <a class="chip" href="https://github.com/open-telemetry/opentelemetry-collector-contrib/pull/50124">OpenTelemetry Collector Contrib</a>
+          <a class="chip" href="https://github.com/open-policy-agent/opa/pull/8962">Open Policy Agent</a>
+          <a class="chip" href="https://github.com/istio/istio/pull/61024">Istio</a>
+          <a class="chip" href="https://github.com/pika/pika/pull/1697">Pika</a>
+          <a class="chip" href="https://github.com/kubernetes-sigs/external-dns/pull/6611">ExternalDNS</a>
+          <a class="chip" href="https://github.com/kubernetes-sigs/cluster-api/pull/14022">Cluster API</a>
+          <a class="chip" href="https://github.com/klauspost/compress/pull/1182">klauspost/compress</a>
+          <a class="chip" href="https://github.com/apache/hop/pull/8094">Apache Hop</a>
+          <a class="chip" href="https://github.com/prometheus/procfs/pull/855">Prometheus procfs</a>
+          <a class="chip" href="https://github.com/langflow-ai/langflow/pull/14758">Langflow AI</a>
+          <a class="chip" href="https://github.com/crossplane/docs/pull/1130">Crossplane</a>
+          <a class="chip" href="https://github.com/dapr/dapr/pull/10307">Dapr</a>
+          <a class="chip" href="https://github.com/fluent/fluent-bit/pull/12222">Fluent Bit</a>
+          <a class="chip" href="https://github.com/envoyproxy/gateway/pull/9634">Envoy Gateway</a>
+          <a class="chip" href="https://github.com/apache/kyuubi/commit/3bc223dbec2ace1692ba22769404c9dd329981ed">Apache Kyuubi</a>
+          <a class="chip" href="https://github.com/fluxcd/notification-controller/pull/1358">Flux</a>
+          <a class="chip" href="https://github.com/iluwatar/java-design-patterns/pull/3583">Java Design Patterns</a>
         </div>
 
         <h3 class="subhead">CVEs e vulnerabilidades confirmadas</h3>
-        <div class="contributions">
-          <a class="contribution" href="https://discuss.hashicorp.com/t/hcsec-2026-34-consul-vulnerable-to-an-authorization-bypass-in-the-catalog-node-write-path/77736"><strong>HashiCorp Consul</strong></a>
-          <a class="contribution" href="https://github.com/advisories/GHSA-f3c2-j7g8-vpp8"><strong>Apache Airflow</strong></a>
-          <div class="contribution"><strong>Spring AI</strong></div>
-          <div class="contribution"><strong>Apache Hop</strong></div>
-          <div class="contribution"><strong>Docker/BuildKit</strong></div>
-          <a class="contribution" href="https://www.cve.org/CVERecord?id=CVE-2026-100704"><strong>Kyverno</strong></a>
-          <a class="contribution" href="https://istio.io/latest/news/releases/1.31.x/announcing-1.31.1/"><strong>Istio</strong></a>
+        <div class="chips">
+          <a class="chip" href="https://discuss.hashicorp.com/t/hcsec-2026-34-consul-vulnerable-to-an-authorization-bypass-in-the-catalog-node-write-path/77736">HashiCorp Consul · CVE-2026-87090</a>
+          <a class="chip" href="https://github.com/advisories/GHSA-f3c2-j7g8-vpp8">Apache Airflow · CVE-2026-68970</a>
+          <div class="chip">Spring AI · CVE-2026-59361</div>
+          <div class="chip">Apache Hop</div>
+          <div class="chip">Docker/BuildKit</div>
+          <a class="chip" href="https://www.cve.org/CVERecord?id=CVE-2026-100704">Kyverno · CVE-2026-100704</a>
+          <a class="chip" href="https://istio.io/latest/news/releases/1.31.x/announcing-1.31.1/">Istio</a>
         </div>
       </section>
 
