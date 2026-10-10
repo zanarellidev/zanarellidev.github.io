@@ -20,9 +20,10 @@
       .links { display:flex; flex-wrap:wrap; gap:10px 22px; }
       .links a { color:#fff; font-weight:650; }
       main { padding:42px 0 64px; }
-      .intro { display:grid; grid-template-columns:1fr; padding:38px 0 50px; }
-      .fact { border-left:2px solid #79d4cc; padding-left:18px; margin:0 0 22px; }
-      .fact strong { display:block; color:var(--navy); font-size:1.25rem; }
+      .head { display:grid; grid-template-columns:1fr auto; gap:32px; align-items:end; }
+      .fact { border-left:2px solid #79d4cc; padding-left:14px; margin:0 0 12px; color:#d5e3ed; font-size:.9rem; line-height:1.4; }
+      .fact:last-child { margin-bottom:0; }
+      .fact strong { display:block; color:#fff; font-size:1.1rem; }
       section { padding:44px 0; border-top:1px solid var(--line); }
       h2 { margin:0 0 22px; color:var(--navy); font-size:1.65rem; letter-spacing:-.025em; }
       h3 { margin:0 0 4px; font-size:1.08rem; }
@@ -47,31 +48,30 @@
       .skills { display:flex; flex-wrap:wrap; gap:9px; }
       .skills span { padding:6px 11px; border-radius:999px; background:#e9eef2; color:#344554; font-size:.91rem; }
       footer { padding:28px 0 46px; border-top:1px solid var(--line); color:var(--muted); font-size:.92rem; }
-      @media (max-width:720px) { header { padding:55px 0 48px; } .intro, .grid { grid-template-columns:1fr; gap:26px; } .metrics { grid-template-columns:1fr; } .timeline li { grid-template-columns:1fr; gap:3px; } }
+      @media (max-width:720px) { header { padding:55px 0 48px; } .head, .grid { grid-template-columns:1fr; gap:26px; } .metrics { grid-template-columns:1fr; } .timeline li { grid-template-columns:1fr; gap:3px; } }
     </style>
   </head>
   <body>
     <header>
-      <div class="wrap">
-        <p class="eyebrow">Currículo</p>
-        <h1>Raphael Zanarelli</h1>
-        <p class="role">Staff Software Engineer · Cloud, Segurança &amp; IA</p>
-        <nav class="links" aria-label="Links de contato">
-          <a href="https://github.com/zanarellidev">GitHub</a>
-          <a href="https://www.linkedin.com/in/raphaelzanarelli/" lang="en">LinkedIn (English version)</a>
-        </nav>
-      </div>
-    </header>
-
-    <main class="wrap">
-      <div class="intro">
+      <div class="wrap head">
+        <div>
+          <p class="eyebrow">Currículo</p>
+          <h1>Raphael Zanarelli</h1>
+          <p class="role">Staff Software Engineer · Cloud, Segurança &amp; IA</p>
+          <nav class="links" aria-label="Links de contato">
+            <a href="https://github.com/zanarellidev">GitHub</a>
+            <a href="https://www.linkedin.com/in/raphaelzanarelli/" lang="en">LinkedIn (English version)</a>
+          </nav>
+        </div>
         <div>
           <p class="fact"><strong>10+ anos</strong> em engenharia de software e sistemas críticos</p>
           <p class="fact"><strong>5+ anos</strong> liderando projetos e operações de TI em escala</p>
           <p class="fact"><strong>São Paulo, Brasil</strong> Português e inglês profissional</p>
         </div>
       </div>
+    </header>
 
+    <main class="wrap">
       <section id="impacto">
         <h2>Impacto</h2>
         <div class="metrics">
