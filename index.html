@@ -3,89 +3,155 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Currículo de Raphael Zanarelli. Engenharia de software, plataformas cloud-native, confiabilidade e segurança. Pesquisa de segurança em Kyverno e Apache Airflow.">
-    <title>Raphael Zanarelli | Engenharia de Software</title>
-    <link rel="canonical" href="https://zanarellidev.github.io/">
-    <link rel="alternate" hreflang="pt-BR" href="https://zanarellidev.github.io/">
-    <link rel="alternate" hreflang="en" href="https://zanarellidev.github.io/en.html">
-    <link rel="alternate" hreflang="x-default" href="https://zanarellidev.github.io/">
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Raphael Zanarelli - Staff Software Engineer especializado em Cloud, Segurança e IA.">
+    <title>Raphael Zanarelli | Staff Software Engineer</title>
+    <style>
+      :root { --ink:#16202b; --muted:#62707f; --line:#dfe5eb; --paper:#fff; --ground:#f6f8fa; --accent:#007b75; --navy:#123047; }
+      * { box-sizing:border-box; }
+      html { scroll-behavior:smooth; }
+      body { margin:0; background:var(--ground); color:var(--ink); font:16px/1.65 ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      a { color:var(--accent); text-decoration-thickness:1px; text-underline-offset:3px; }
+      a:hover { color:#005b57; }
+      .wrap { width:min(1080px, calc(100% - 40px)); margin:auto; }
+      header { background:var(--navy); color:#fff; padding:76px 0 64px; }
+      .eyebrow { margin:0 0 12px; color:#86e1d9; font-size:.82rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
+      h1 { margin:0; font-size:clamp(2.4rem, 6vw, 4.8rem); letter-spacing:-.055em; line-height:1; }
+      .role { margin:18px 0 26px; color:#d5e3ed; font-size:clamp(1.1rem, 2.2vw, 1.45rem); }
+      .links { display:flex; flex-wrap:wrap; gap:10px 22px; }
+      .links a { color:#fff; font-weight:650; }
+      main { padding:42px 0 64px; }
+      .head { display:grid; grid-template-columns:1fr auto; gap:32px; align-items:end; }
+      .fact { border-left:2px solid #79d4cc; padding-left:14px; margin:0 0 12px; color:#d5e3ed; font-size:.9rem; line-height:1.4; }
+      .fact:last-child { margin-bottom:0; }
+      .fact strong { display:block; color:#fff; font-size:1.1rem; }
+      section { padding:44px 0; border-top:1px solid var(--line); }
+      h2 { margin:0 0 22px; color:var(--navy); font-size:1.65rem; letter-spacing:-.025em; }
+      h3 { margin:0 0 4px; font-size:1.08rem; }
+      .grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:18px; }
+      .card { padding:22px; border:1px solid var(--line); border-radius:12px; background:var(--paper); }
+      .card p { margin:6px 0 0; color:var(--muted); }
+      .metrics { display:grid; grid-template-columns:repeat(3, 1fr); gap:14px; }
+      .metric { padding:20px; border-radius:10px; background:#eaf7f5; }
+      .metric strong { display:block; color:var(--accent); font-size:1.8rem; letter-spacing:-.04em; }
+      .metric span { color:#40515d; font-size:.94rem; line-height:1.35; }
+      .timeline { list-style:none; margin:0; padding:0; }
+      .timeline li { display:grid; grid-template-columns:180px 1fr; gap:24px; padding:20px 0; border-bottom:1px solid var(--line); }
+      .timeline li:last-child { border:0; }
+      .date, .meta { color:var(--muted); font-size:.93rem; }
+      .timeline p { margin:6px 0 0; }
+      .subhead { margin:30px 0 14px; color:var(--navy); font-size:1.05rem; }
+      .chips { display:flex; flex-wrap:wrap; gap:8px; }
+      .chip { padding:6px 13px; border:1px solid var(--line); border-radius:999px; background:var(--paper); color:var(--navy); font-size:.9rem; font-weight:600; text-decoration:none; }
+      .chip a { margin-left:4px; color:var(--accent); font-weight:700; text-decoration:none; }
+      .chip a:hover { text-decoration:underline; }
+      a.chip:hover { border-color:#75c9c2; box-shadow:0 3px 12px #11364c12; color:var(--navy); }
+      .skills { display:flex; flex-wrap:wrap; gap:9px; }
+      .skills span { padding:6px 11px; border-radius:999px; background:#e9eef2; color:#344554; font-size:.91rem; }
+      footer { padding:28px 0 46px; border-top:1px solid var(--line); color:var(--muted); font-size:.92rem; }
+      @media (max-width:720px) { header { padding:55px 0 48px; } .head, .grid { grid-template-columns:1fr; gap:26px; } .metrics { grid-template-columns:1fr; } .timeline li { grid-template-columns:1fr; gap:3px; } }
+    </style>
   </head>
   <body>
     <header>
-      <div class="wrap">
-        <p class="eyebrow">Currículo</p>
-        <h1>Raphael Zanarelli</h1>
-        <p class="role">Engenharia de Software · Plataformas Cloud-native, Confiabilidade e Segurança</p>
-        <p class="intro">Atuo no desenvolvimento e na operação de aplicações empresariais críticas, combinando arquitetura de software, desempenho, observabilidade e liderança técnica. Também realizo pesquisa independente de segurança em projetos open source.</p>
-        <nav class="links" aria-label="Contato e idioma">
-          <a href="https://github.com/zanarellidev">GitHub</a>
-          <a href="https://www.linkedin.com/in/raphaelzanarelli/">LinkedIn</a>
-          <a href="en.html" lang="en" hreflang="en">English résumé</a>
-        </nav>
-        <p class="location">São Paulo, Brasil · Engenharia de software desde 2018</p>
+      <div class="wrap head">
+        <div>
+          <p class="eyebrow">Currículo</p>
+          <h1>Raphael Zanarelli</h1>
+          <p class="role">Staff Software Engineer · Cloud, Segurança &amp; IA</p>
+          <nav class="links" aria-label="Links de contato">
+            <a href="https://github.com/zanarellidev">GitHub</a>
+            <a href="https://www.linkedin.com/in/raphaelzanarelli/" lang="en">LinkedIn (English version)</a>
+          </nav>
+        </div>
+        <div>
+          <p class="fact"><strong>10+ anos</strong> em engenharia de software e sistemas críticos</p>
+          <p class="fact"><strong>5+ anos</strong> liderando projetos e operações de TI em escala</p>
+          <p class="fact"><strong>São Paulo, Brasil</strong> Português e inglês profissional</p>
+        </div>
       </div>
     </header>
+
     <main class="wrap">
       <section id="impacto">
-        <h2>Resultados selecionados</h2>
-        <ul class="results">
-          <li><strong>Confiabilidade:</strong> Redução do tempo médio de recuperação de incidentes (MTTR) de 2 horas para 5 minutos com monitoramento proativo.</li>
-          <li><strong>Capacidade:</strong> Ampliação de 40 para 800 transações por segundo em serviços de sistemas críticos de vendas e atendimento.</li>
-          <li><strong>Desempenho:</strong> Redução do tempo de resposta de 2 minutos para 2 segundos em aplicações críticas.</li>
-        </ul>
+        <h2>Impacto</h2>
+        <div class="metrics">
+          <div class="metric"><strong>2 h → 5 min</strong><span>redução de MTTR com monitoramento proativo</span></div>
+          <div class="metric"><strong>85% → 99%</strong><span>respostas com sucesso após modernização</span></div>
+          <div class="metric"><strong>2 min → 2 s</strong><span>melhoria de tempo de resposta em aplicações críticas</span></div>
+        </div>
+        <div class="grid" style="margin-top:18px">
+          <article class="card"><h3>Plataformas resilientes</h3><p>Reduzi o backlog de incidentes de 15 para 0 com investigação de causa raiz e automação. Também aumentei o suporte de carga em 20x (40 → 800 TPS) em serviços que atendem sistemas críticos de vendas e atendimento.</p></article>
+          <article class="card"><h3>Entrega e eficiência</h3><p>Modernizei ecossistemas de CI/CD, levando o time-to-market de aproximadamente duas horas para 20 minutos.</p><p>Realizei diminuição no uso de capacidade de infraestrutura, reduzindo o consumo em 90%, com economia total estimada de R$ 1.000.000+ em 5 anos.</p></article>
+          <article class="card"><h3>Arquitetura moderna</h3><p>Desenho soluções cloud-native com microsserviços, observabilidade e práticas de segurança, entregando sistemas altamente disponíveis (99,9%), com foco em desempenho e custo total de propriedade.</p></article>
+          <article class="card"><h3>IA aplicada ao produto</h3><p>Exploro IA como parceira de trabalho para aumentar a agilidade e o ROI de produtos de software, com estimativa de redução de 60% no tempo de entrega, sempre com humano à frente das decisões técnicas e de negócio.</p></article>
+        </div>
       </section>
+
       <section id="experiencia">
-        <h2>Experiência profissional</h2>
+        <h2>Experiência</h2>
         <ol class="timeline">
-          <li><div class="date">mai 2026 – atual</div><div><h3>Engineering Brasil</h3><div class="meta">Desenvolvedor Especialista</div></div></li>
-          <li><div class="date">mar 2026 – mai 2026</div><div><h3>Porto</h3><div class="meta">Analista de Engenharia de Software Sr</div></div></li>
-          <li><div class="date">nov 2022 – mar 2026</div><div><h3>Claro Brasil</h3><div class="meta">Líder Técnico - Especialista</div></div></li>
-          <li><div class="date">nov 2022 – mar 2026</div><div><h3>Spread Tecnologia</h3><div class="meta">Líder de Serviços de Tecnologia</div></div></li>
-          <li><div class="date">set 2022 – nov 2022</div><div><h3>Evertec (Sinqia)</h3><div class="meta">Desenvolvedor Pleno</div></div></li>
-          <li><div class="date">jul 2018 – ago 2022</div><div><h3>DXC Technology</h3><div class="meta">Analista de Sistemas</div></div></li>
-          <li><div class="date">abr 2018 – jul 2018</div><div><h3>Invillia</h3><div class="meta">Desenvolvedor</div></div></li>
+          <li><div class="date">mai 2026 — atual<br>Grande São Paulo</div><div><h3>Engineering Brasil</h3><div class="meta">Desenvolvedor Especialista</div></div></li>
+          <li><div class="date">mar 2026 — mai 2026<br>São Paulo, Brasil</div><div><h3>Porto</h3><div class="meta">Analista de Engenharia de Software Sr</div></div></li>
+          <li><div class="date">nov 2022 — mar 2026<br>São Paulo, Brasil</div><div><h3>Claro Brasil</h3><div class="meta">Líder Técnico - Especialista</div></div></li>
+          <li><div class="date">nov 2022 — mar 2026<br>São Paulo, Brasil</div><div><h3>Spread Tecnologia</h3><div class="meta">Líder de Serviços de Tecnologia</div></div></li>
+          <li><div class="date">set 2022 — nov 2022<br>São Paulo, Brasil</div><div><h3>Evertec (Sinqia)</h3><div class="meta">Desenvolvedor Pleno</div></div></li>
+          <li><div class="date">jul 2018 — ago 2022<br>Grande São Paulo</div><div><h3>DXC Technology</h3><div class="meta">Analista de Sistemas</div></div></li>
+          <li><div class="date">abr 2018 — jul 2018</div><div><h3>Invillia</h3><div class="meta">Desenvolvedor</div></div></li>
         </ol>
       </section>
+
       <section id="open-source">
-        <h2>Pesquisa de segurança em open source</h2>
-        <div class="grid">
-          <article class="card">
-            <h3>Kyverno · CVE-2026-100704</h3>
-            <p class="credit">Crédito oficial como reporter</p>
-            <p>Reporte de um bypass de verificação de imagens no Kubernetes causado pela aplicação incorreta do escopo de exceções de políticas. Falha corrigida no Kyverno 1.19.1.</p>
-            <p><a href="https://github.com/kyverno/kyverno/security/advisories/GHSA-5cjf-wwfg-pj4c">Advisory oficial</a> · <a href="https://www.cve.org/CVERecord?id=CVE-2026-100704">Registro CVE e créditos</a></p>
-          </article>
-          <article class="card">
-            <h3>Apache Airflow · CVE-2026-68970</h3>
-            <p class="credit">Crédito oficial como finder</p>
-            <p>Identificação de uma falha de mascaramento de segredos em Variables do tipo lista, expondo valores em logs de tarefas e na interface Rendered Templates. Falha corrigida no Airflow 3.3.1.</p>
-            <p><a href="https://lists.apache.org/thread/kkrlnbsk47oght4h38mcd3h2kcb8dt28">Advisory da Apache</a> · <a href="https://www.cve.org/CVERecord?id=CVE-2026-68970">Registro CVE e créditos</a></p>
-          </article>
+        <h2>Contribuições em open source</h2>
+        <div class="chips">
+          <a class="chip" href="https://github.com/kubernetes-sigs/headlamp/pull/7594">Headlamp</a>
+          <a class="chip" href="https://github.com/kedacore/keda/pull/8126">KEDA</a>
+          <a class="chip" href="https://github.com/spring-projects/spring-session/pull/3884">Spring Session</a>
+          <a class="chip" href="https://github.com/open-telemetry/opentelemetry-collector/pull/15679">OpenTelemetry Collector</a>
+          <a class="chip" href="https://github.com/open-telemetry/opentelemetry-collector-contrib/pull/50124">OpenTelemetry Collector Contrib</a>
+          <a class="chip" href="https://github.com/open-policy-agent/opa/pull/8962">Open Policy Agent</a>
+          <a class="chip" href="https://github.com/istio/istio/pull/61024">Istio</a>
+          <a class="chip" href="https://github.com/pika/pika/pull/1697">Pika</a>
+          <span class="chip">ExternalDNS <a href="https://github.com/kubernetes-sigs/external-dns/pull/6611">#1</a> <a href="https://github.com/kubernetes-sigs/external-dns/pull/6644">#2</a> <a href="https://github.com/kubernetes-sigs/external-dns/pull/6694">#3</a></span>
+          <a class="chip" href="https://github.com/kubernetes-sigs/cluster-api/pull/14022">Cluster API</a>
+          <span class="chip">klauspost/compress <a href="https://github.com/klauspost/compress/pull/1182">#1</a> <a href="https://github.com/klauspost/compress/pull/1183">#2</a> <a href="https://github.com/klauspost/compress/pull/1184">#3</a></span>
+          <span class="chip">Apache Hop <a href="https://github.com/apache/hop/pull/8094">#1</a> <a href="https://github.com/apache/hop/pull/8027">#2</a></span>
+          <a class="chip" href="https://github.com/prometheus/procfs/pull/855">Prometheus procfs</a>
+          <a class="chip" href="https://github.com/langflow-ai/langflow/pull/14758">Langflow AI</a>
+          <a class="chip" href="https://github.com/crossplane/docs/pull/1130">Crossplane</a>
+          <a class="chip" href="https://github.com/dapr/dapr/pull/10307">Dapr</a>
+          <a class="chip" href="https://github.com/fluent/fluent-bit/pull/12222">Fluent Bit</a>
+          <a class="chip" href="https://github.com/envoyproxy/gateway/pull/9634">Envoy Gateway</a>
+          <a class="chip" href="https://github.com/apache/kyuubi/commit/3bc223dbec2ace1692ba22769404c9dd329981ed">Apache Kyuubi</a>
+          <span class="chip">Flux <a href="https://github.com/fluxcd/notification-controller/pull/1357">#1</a> <a href="https://github.com/fluxcd/notification-controller/pull/1358">#2</a></span>
+          <a class="chip" href="https://github.com/iluwatar/java-design-patterns/pull/3583">Java Design Patterns</a>
+        </div>
+
+        <h3 class="subhead">CVEs e vulnerabilidades</h3>
+        <div class="chips">
+          <a class="chip" href="https://discuss.hashicorp.com/t/hcsec-2026-34-consul-vulnerable-to-an-authorization-bypass-in-the-catalog-node-write-path/77736">HashiCorp Consul · CVE-2026-87090</a>
+          <a class="chip" href="https://github.com/advisories/GHSA-f3c2-j7g8-vpp8">Apache Airflow · CVE-2026-68970</a>
+          <div class="chip">Spring AI · CVE-2026-59361 · CVE-2026-59338 · CVE-2026-59442</div>
+          <div class="chip" title="Report aceito; divulgação pública pendente">Harbor</div>
+          <div class="chip">Apache Hop</div>
+          <div class="chip">Docker/BuildKit</div>
+          <a class="chip" href="https://www.cve.org/CVERecord?id=CVE-2026-100704">Kyverno · CVE-2026-100704</a>
+          <a class="chip" href="https://istio.io/latest/news/releases/1.31.x/announcing-1.31.1/">Istio</a>
         </div>
       </section>
+
       <section id="formacao">
-        <h2>Formação e desenvolvimento profissional</h2>
+        <h2>Formação e certificações</h2>
         <div class="grid">
-          <article class="card">
-            <h3>FATEC-SP</h3>
-            <p>Superior de Tecnologia em Segurança da Informação · 2025–2027 · Em andamento</p>
-            <p>Superior de Tecnologia em Análise e Desenvolvimento de Sistemas · 2017–2020</p>
-          </article>
-          <article class="card">
-            <h3>Certificações e cursos</h3>
-            <p>Oracle Data Platform · 1Z0-1195-25</p>
-            <p>Oracle Cloud Infrastructure · 1Z0-1085-25</p>
-            <p>Microsoft Azure · AZ-900</p>
-            <p>Amazon EKS</p>
-          </article>
+          <article class="card"><h3>FATEC-SP</h3><p>Superior de Tecnologia em Segurança da Informação · 2025–2027</p><p>Superior de Tecnologia em Análise e Desenvolvimento de Sistemas · 2017–2020</p></article>
+          <article class="card"><h3>Certificações</h3><p>Oracle Data Platform (1Z0-1195-25) · Oracle Cloud Infrastructure (1Z0-1085-25) · Microsoft Azure AZ-900 · Amazon EKS</p></article>
         </div>
       </section>
+
       <section id="competencias">
         <h2>Competências</h2>
-        <div class="skills"><span>Arquitetura de Software</span><span>Cloud-native</span><span>Kubernetes</span><span>Sistemas Distribuídos</span><span>Segurança de Aplicações</span><span>CI/CD</span><span>Observabilidade</span><span>Microsserviços</span><span>Análise de Desempenho</span><span>Liderança Técnica</span></div>
+        <div class="skills"><span>Arquitetura de Software</span><span>Cloud-native</span><span>Segurança da Informação</span><span>Application Security</span><span>SDLC</span><span>CI/CD</span><span>Observabilidade</span><span>Microsserviços</span><span>Kubernetes</span><span>Performance</span><span>Liderança Técnica</span><span>Inovação</span></div>
       </section>
     </main>
-    <footer class="wrap">Raphael Zanarelli · <a href="en.html" lang="en" hreflang="en">English résumé</a></footer>
+    <footer class="wrap">© 2026 Raphael Zanarelli · Construído e publicado com GitHub Pages.</footer>
   </body>
 </html>
