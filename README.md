@@ -1,5 +1,8 @@
 # Raphael Zanarelli
 
-Currículo online de Raphael Zanarelli, Staff Software Engineer especializado em Cloud, Segurança e IA.
+Currículo de Raphael Zanarelli, com foco em plataformas cloud-native, confiabilidade, desempenho e segurança.
 
-Disponível em [zanarellidev.github.io](https://zanarellidev.github.io).
+- [Português](https://zanarellidev.github.io/)
+- [English résumé](https://zanarellidev.github.io/en.html)
+
+As duas versões são páginas HTML estáticas, com estilo compartilhado em `style.css` e layout para impressão. Ao atualizar experiência, resultados ou formação, mantenha as versões equivalentes.
